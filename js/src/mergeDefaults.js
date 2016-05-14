@@ -1,8 +1,10 @@
-var assertType, combine, isType, mergeDefaults, ref;
+var assertType, combine, isType, mergeDefaults;
 
-ref = require("type-utils"), isType = ref.isType, assertType = ref.assertType;
+assertType = require("assertType");
 
 combine = require("combine");
+
+isType = require("isType");
 
 module.exports = mergeDefaults = function(options, optionDefaults) {
   var defaultValue, key, value;

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "js/src/mergeDefaults",
   "dependencies": {
+    "assertType": "aleclarson/assertType#1.0.0",
     "combine": "aleclarson/combine#1.0.0",
-    "type-utils": "aleclarson/type-utils#1.0.0"
+    "isType": "aleclarson/isType#1.0.0"
   },
   "lotus": {
     "plugins": [

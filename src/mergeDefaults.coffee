@@ -1,13 +1,12 @@
 
-{ isType, assertType } = require "type-utils"
-
+assertType = require "assertType"
 combine = require "combine"
+isType = require "isType"
 
 module.exports =
 mergeDefaults = (options, optionDefaults) ->
 
   assertType options, Object
-
   assertType optionDefaults, Object
 
   for key, defaultValue of optionDefaults
