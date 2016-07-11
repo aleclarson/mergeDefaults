@@ -1,27 +1,29 @@
 
+PureObject = require "PureObject"
 assertType = require "assertType"
 combine = require "combine"
 isType = require "isType"
 
-module.exports =
-mergeDefaults = (options, optionDefaults) ->
+mergeDefaults = (obj, defaultValues) ->
 
-  assertType options, Object
-  assertType optionDefaults, Object
+  assertType obj, [ Object, PureObject ]
+  assertType defaultValues, [ Object, PureObject ]
 
-  for key, defaultValue of optionDefaults
+  for key, defaultValue of defaultValues
 
-    value = options[key]
+    value = obj[key]
 
     if isType defaultValue, Object
 
       if value is undefined
-        options[key] = combine {}, defaultValue
+        obj[key] = combine {}, defaultValue
 
       else if isType value, Object
         mergeDefaults value, defaultValue
 
     else if value is undefined
-      options[key] = defaultValue
+      obj[key] = defaultValue
 
   return
+
+module.exports = mergeDefaults
