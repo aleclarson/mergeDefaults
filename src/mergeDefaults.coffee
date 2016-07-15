@@ -1,7 +1,7 @@
 
+cloneObject = require "cloneObject"
 PureObject = require "PureObject"
 assertType = require "assertType"
-combine = require "combine"
 isType = require "isType"
 
 mergeDefaults = (obj, defaultValues) ->
@@ -16,7 +16,7 @@ mergeDefaults = (obj, defaultValues) ->
     if isType defaultValue, Object
 
       if value is undefined
-        obj[key] = combine {}, defaultValue
+        obj[key] = cloneObject defaultValue, { recursive: yes }
 
       else if isType value, Object
         mergeDefaults value, defaultValue

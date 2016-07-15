@@ -1,10 +1,10 @@
-var PureObject, assertType, combine, isType, mergeDefaults;
+var PureObject, assertType, cloneObject, isType, mergeDefaults;
+
+cloneObject = require("cloneObject");
 
 PureObject = require("PureObject");
 
 assertType = require("assertType");
-
-combine = require("combine");
 
 isType = require("isType");
 
@@ -17,7 +17,9 @@ mergeDefaults = function(obj, defaultValues) {
     value = obj[key];
     if (isType(defaultValue, Object)) {
       if (value === void 0) {
-        obj[key] = combine({}, defaultValue);
+        obj[key] = cloneObject(defaultValue, {
+          recursive: true
+        });
       } else if (isType(value, Object)) {
         mergeDefaults(value, defaultValue);
       }
