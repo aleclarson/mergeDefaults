@@ -1,13 +1,20 @@
 
+require "isDev"
+
 cloneObject = require "cloneObject"
 PureObject = require "PureObject"
 assertType = require "assertType"
 isType = require "isType"
+Typle = require "Typle"
+
+isDev and
+Objectlike = Typle [ Object, PureObject ]
 
 mergeDefaults = (obj, defaultValues) ->
 
-  assertType obj, [ Object, PureObject ]
-  assertType defaultValues, [ Object, PureObject ]
+  if isDev
+    assertType obj, Objectlike
+    assertType defaultValues, Objectlike
 
   for key, defaultValue of defaultValues
 

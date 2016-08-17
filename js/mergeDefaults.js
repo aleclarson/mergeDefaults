@@ -1,4 +1,6 @@
-var PureObject, assertType, cloneObject, isType, mergeDefaults;
+var Objectlike, PureObject, Typle, assertType, cloneObject, isType, mergeDefaults;
+
+require("isDev");
 
 cloneObject = require("cloneObject");
 
@@ -8,10 +10,16 @@ assertType = require("assertType");
 
 isType = require("isType");
 
+Typle = require("Typle");
+
+isDev && (Objectlike = Typle([Object, PureObject]));
+
 mergeDefaults = function(obj, defaultValues) {
   var defaultValue, key, value;
-  assertType(obj, [Object, PureObject]);
-  assertType(defaultValues, [Object, PureObject]);
+  if (isDev) {
+    assertType(obj, Objectlike);
+    assertType(defaultValues, Objectlike);
+  }
   for (key in defaultValues) {
     defaultValue = defaultValues[key];
     value = obj[key];
