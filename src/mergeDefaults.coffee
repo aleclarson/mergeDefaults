@@ -1,12 +1,13 @@
 
 cloneObject = require "cloneObject"
-PureObject = require "PureObject"
-assertType = require "assertType"
 isType = require "isType"
-Typle = require "Typle"
 isDev = require "isDev"
 
-Objectlike = isDev and Typle [ Object, PureObject ]
+if isDev
+  assertType = require "assertType"
+  PureObject = require "PureObject"
+  Typle = require "Typle"
+  Objectlike = Typle [Object, PureObject]
 
 mergeDefaults = (obj, defaultValues) ->
 
@@ -21,7 +22,7 @@ mergeDefaults = (obj, defaultValues) ->
     if isType defaultValue, Object
 
       if value is undefined
-        obj[key] = cloneObject defaultValue, { recursive: yes }
+        obj[key] = cloneObject defaultValue, {recursive: yes}
 
       else if isType value, Object
         mergeDefaults value, defaultValue
