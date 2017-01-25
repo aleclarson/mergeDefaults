@@ -1,4 +1,6 @@
 
+getType = require "getType"
+
 mergeDefaults = require "../src/mergeDefaults"
 
 describe "mergeDefaults()", ->

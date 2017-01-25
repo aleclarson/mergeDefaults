@@ -16,5 +16,8 @@
     "cloneObject": "aleclarson/cloneObject#1.0.1",
     "isDev": "aleclarson/isDev#2.0.0",
     "isType": "aleclarson/isType#1.0.1"
+  },
+  "devDependencies": {
+    "getType": "aleclarson/getType#1.0.1"
   }
 }
