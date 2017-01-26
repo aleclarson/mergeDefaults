@@ -5,9 +5,9 @@ isDev = require "isDev"
 
 if isDev
   assertType = require "assertType"
-  PureObject = require "PureObject"
-  Typle = require "Typle"
-  Objectlike = Typle [Object, PureObject]
+  Objectlike = do ->
+    Either = require "Either"
+    return Either(Array, Object, require "PureObject")
 
 mergeDefaults = (obj, defaultValues) ->
 

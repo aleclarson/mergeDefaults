@@ -64,3 +64,15 @@ describe "mergeDefaults()", ->
 
     expect obj.goo.red
       .toBe yes
+
+  it "works with arrays", ->
+
+    array = []
+    defaults = [1, 2, 3]
+    mergeDefaults array, defaults
+
+    expect array
+      .toEqual defaults
+
+    expect array
+      .not.toBe defaults
