@@ -7,7 +7,7 @@ if isDev
   assertType = require "assertType"
   Objectlike = do ->
     Either = require "Either"
-    return Either(Object, require "PureObject")
+    return Either(Array, Object, require "PureObject")
 
 mergeDefaults = (obj, defaultValues) ->
 
