@@ -13,7 +13,7 @@
     "Either": "aleclarson/Either#1.0.0",
     "PureObject": "aleclarson/PureObject#1.0.1",
     "assertType": "aleclarson/assertType#2.0.1",
-    "cloneObject": "aleclarson/cloneObject#1.0.1",
+    "cloneObject": "aleclarson/cloneObject#1.0.2",
     "isDev": "aleclarson/isDev#2.0.0",
     "isType": "aleclarson/isType#1.0.1"
   },
