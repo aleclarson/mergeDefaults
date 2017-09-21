@@ -1,35 +1,24 @@
 
+assertValid = require "assertValid"
 cloneObject = require "cloneObject"
-isType = require "isType"
-isDev = require "isDev"
 
-if isDev
-  assertType = require "assertType"
-  Objectlike = do ->
-    Either = require "Either"
-    return Either(Array, Object, require "PureObject")
+mergeDefaults = (obj, defaults) ->
+  assertValid obj, "object"
+  assertValid defaults, "object"
 
-mergeDefaults = (obj, defaultValues) ->
+  for key, value of defaults
 
-  if isDev
-    assertType obj, Objectlike
-    assertType defaultValues, Objectlike
+    if value and value.constructor is Object
 
-  for key, defaultValue of defaultValues
+      if obj[key] is undefined
+        obj[key] = cloneObject value, true
 
-    value = obj[key]
+      else if obj[key] and obj[key].constructor is Object
+        mergeDefaults obj[key], value
 
-    if isType defaultValue, Object
+    else if obj[key] is undefined
+      obj[key] = value
 
-      if value is undefined
-        obj[key] = cloneObject defaultValue, {recursive: yes}
-
-      else if isType value, Object
-        mergeDefaults value, defaultValue
-
-    else if value is undefined
-      obj[key] = defaultValue
-
-  return
+  return obj
 
 module.exports = mergeDefaults
