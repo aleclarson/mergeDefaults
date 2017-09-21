@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "assertValid": "aleclarson/assertValid#1.0.0",
-    "cloneObject": "aleclarson/cloneObject#1.0.3"
+    "cloneObject": "aleclarson/cloneObject#1.1.0"
   }
 }
