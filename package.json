@@ -1,0 +1,9 @@
+{
+  "name": "mergeDefaults",
+  "version": "1.1.0",
+  "main": "js/mergeDefaults",
+  "dependencies": {
+    "assertValid": "aleclarson/assertValid#1.0.1",
+    "cloneObject": "aleclarson/cloneObject#1.1.0"
+  }
+}
