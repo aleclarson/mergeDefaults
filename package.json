@@ -10,7 +10,7 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "assertValid": "aleclarson/assertValid#1.0.0",
+    "assertValid": "aleclarson/assertValid#1.0.1",
     "cloneObject": "aleclarson/cloneObject#1.1.0"
   }
 }
