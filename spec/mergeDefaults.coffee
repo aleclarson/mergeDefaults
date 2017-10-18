@@ -1,14 +1,12 @@
 
-getType = require "getType"
-
 mergeDefaults = require "../src/mergeDefaults"
 
 describe "mergeDefaults()", ->
 
-  it "always returns undefined", ->
+  it "always returns the first argument", ->
 
-    expect mergeDefaults {}, {}
-      .toBe undefined
+    expect mergeDefaults arg1 = {}, {}
+      .toBe arg1
 
   it "does NOT overwrite defined values", ->
 
@@ -44,7 +42,7 @@ describe "mergeDefaults()", ->
 
     mergeDefaults obj, defaults
 
-    expect getType obj.foo
+    expect obj.foo.constructor
       .toBe Object
 
     expect obj.foo
@@ -56,7 +54,7 @@ describe "mergeDefaults()", ->
     expect obj.foo.mud
       .toBe 2
 
-    expect getType obj.goo
+    expect obj.goo.constructor
       .toBe Object
 
     expect obj.goo
@@ -65,14 +63,7 @@ describe "mergeDefaults()", ->
     expect obj.goo.red
       .toBe yes
 
-  it "works with arrays", ->
+  it "does not support arrays", ->
+    expect -> mergeDefaults [], [1]
+    .toThrowError "Expected an object"
 
-    array = []
-    defaults = [1, 2, 3]
-    mergeDefaults array, defaults
-
-    expect array
-      .toEqual defaults
-
-    expect array
-      .not.toBe defaults
